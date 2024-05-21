@@ -15,6 +15,7 @@
                     @endif
                     
                     <a href="{{route('solicitud.index' )}}" class="btn" > Solicitud</a>
+                    <a href="{{route('funcionario.index' )}}" class="btn" > Funcionario</a>
                 </div>
             </div>
         </div>

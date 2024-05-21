@@ -113,4 +113,8 @@ return view('solicitudes.index', compact('solicituds'));
         $solicitud -> delete();
        return Redirect::back(); 
     }
+
+    public function alert(){
+        return view('solicitudes.alert');
+    }
 }

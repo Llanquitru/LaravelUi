@@ -48,12 +48,13 @@ class User extends Authenticatable
 
 
 
-    public function pruebas(){
-        return $this->hasMany(Prueba::class);
-    }
 
 
     public function solicituds(){
         return $this->hasMany(Solicitud::class);
+    }
+
+    public function funcionarios(){
+        return $this->hasMany(Funcionario::class);
     }
 }
