@@ -94,7 +94,7 @@ return view('solicitudes.index', compact('solicituds'));
             'codigo'=>$request-> codigo,
             'requerimiento' =>$request-> requerimiento,
             'descripcion'=>$request-> descripcion,
-            // 'id_user'=>Auth::user()->id
+             'id_user'=>Auth::user()->id
 
 
 

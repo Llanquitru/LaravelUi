@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     
-                    <a href="{{route('solicitud.index')}}"> coso</a>
+                    <a href="{{route('solicitud.index' )}}" class="btn" > Solicitud</a>
                 </div>
             </div>
         </div>
