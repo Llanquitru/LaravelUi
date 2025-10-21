@@ -5,34 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Funcionario extends Model
+class Gabinete extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nombre_funcionario',
-        'correo',
-        'departamento',
-        'trabajo',
-        'user_id',
-        'slug'
+        'marca_gabinete',
+        'serial_gabinete',
+        'slug',
+        'estado',
+        'ram_tipo',
+        'ram'
+       
     ];
 
-  
-     public function agrupado(){
+    public function agrupado(){
+
         return $this->hasOne(Agrupado::class);
-     }
+    }
+
     public function getRouteKeyName(){
 
         return 'slug';
      }
-
-
-
-
-     public function user(){
-
-        return $this->belongsTo(User::class, 'user_id');
-     }
-
 }

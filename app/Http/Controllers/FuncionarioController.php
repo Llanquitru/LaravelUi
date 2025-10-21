@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+
 class FuncionarioController extends Controller
 {
     /**
@@ -14,8 +15,10 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        $funcionarios = Funcionario::with('user')->get();
-       return view('funcionarios.index',compact('funcionarios'));
+
+        $funcionarios= Funcionario::with('user')->get();
+        return view('funcionarios.index', compact('funcionarios'));
+
     }
 
     /**
@@ -23,7 +26,7 @@ class FuncionarioController extends Controller
      */
     public function create()
     {
-        return view('funcionarios.create');
+       return view('funcionarios.create');
     }
 
     /**
@@ -31,23 +34,24 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
-        //$slug = Str::slug($request->oficina,'-');
-
-       
-        Funcionario::create([
+      
+            $slug = Str::slug($request->nombre_funcionario,'-');
+    
            
-            'nombre'=> $request -> nombre,
-            'correo'=> $request -> correo,
-            'departamento'=>$request-> departamento,
-            'trabajo' =>$request-> trabajo,
-            
-            'user_id'=>Auth::user()->id
-
-
-
-        ]);
-
-        return redirect()->route('funcionario.alert');
+            Funcionario::create([
+                'slug'=>$slug,
+                'nombre_funcionario'=> $request -> nombre_funcionario,
+                'correo'=>$request->correo,
+                'departamento'=> $request -> departamento,
+                'trabajo'=>$request-> trabajo,
+                'user_id'=>Auth::user()->id
+    
+    
+    
+            ]);
+    
+            return redirect()->route('funcionario.alertaFuncionario');
+       
     }
 
     /**
@@ -55,7 +59,8 @@ class FuncionarioController extends Controller
      */
     public function show(Funcionario $funcionario)
     {
-        //
+        
+        return view('funcionarios.show', compact('funcionario'));
     }
 
     /**
@@ -63,7 +68,9 @@ class FuncionarioController extends Controller
      */
     public function edit(Funcionario $funcionario)
     {
-       
+      
+    return view('funcionarios.edit', compact('funcionario'));
+        
     }
 
     /**
@@ -71,20 +78,20 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, Funcionario $funcionario)
     {
-        $slug = Str::slug($request->oficina,'-');
+        $slug = Str::slug($request->nombre_funcionario,'-');
         $funcionario->update([
             'slug'=>$slug,
-            'oficina'=> $request -> oficina,
-            'equipo'=> $request -> equipo,
-            'codigo'=>$request-> codigo,
-            'requerimiento' =>$request-> requerimiento,
-            'descripcion'=>$request-> descripcion,
+            'nombre_funcionario'=> $request -> nombre_funcionario,
+            'correo'=>$request->correo,
+            'departamento'=> $request -> departamento,
+            'trabajo'=>$request-> trabajo,
+            'user_id'=>Auth::user()->id,
            
 
 
 
         ]);
-        return Redirect::route('funcionarios.index'); 
+        return redirect()->route('funcionario.alertaFuncionario');
     }
 
     /**
@@ -92,14 +99,11 @@ class FuncionarioController extends Controller
      */
     public function destroy(Funcionario $funcionario)
     {
-        //
+        $funcionario -> delete();
+      return Redirect::back();
     }
 
-    public function tabla(){
-        return view('funcionarios.tabla');
-    }
-
-    public function alert(){
-        return view('funcionarios.alert');
+    public function alertaFuncionario(){
+        return view('funcionarios.alerta');
     }
 }

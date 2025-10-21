@@ -62,8 +62,8 @@ class User extends Authenticatable
         return $this->hasMany(Funcionario::class);
     }
 
-    public function inventories(){
-        return $this->hasMany(Inventorie::class);
+    public function insumos(){
+        return $this->hasMany(Insumo::class);
     }
 
 }

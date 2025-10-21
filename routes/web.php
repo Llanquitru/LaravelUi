@@ -1,10 +1,21 @@
 <?php
 
+use App\Http\Controllers\AgrupadoController;
+use App\Http\Controllers\CalendarioController;
+use App\Http\Controllers\EquiposController;
 use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\GabineteController;
+use App\Http\Controllers\InsumoController;
 use App\Http\Controllers\InventorieController;
+use App\Http\Controllers\MauseController;
+use App\Http\Controllers\PantallaController;
+use App\Http\Controllers\ParlanteController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\SolicitudController;
+use App\Http\Controllers\TecladoController;
+use App\Models\Funcionario;
 use App\Models\Inventorie;
+use App\Models\Parlante;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -41,40 +52,80 @@ Route::middleware('auth')->group(function () {
 
 
     //rutas de solicitud
-
+    Route::resource('solicitud', SolicitudController::class);
     Route::prefix('solicitud')->group(function () {
         Route::get('alert', [SolicitudController::class, 'alert'])->name('solicitud.alert');
-        Route::resource('solicitud', SolicitudController::class);
+        
     });
 
 
 
     //rutas de Funcionario
 
-    Route::prefix('funcionario')->group(function () {
+     Route::prefix('funcionario')->group(function () {
 
+       Route::resource('funcionario', FuncionarioController::class);
 
+     Route::get('alertaFuncionario',[FuncionarioController::class, 'alertaFuncionario'])->name('funcionario.alertaFuncionario');
+       
+       });
+  
 
-        Route::get('alert', [FuncionarioController::class, 'alert'])->name('funcionario.alert');
-
-        Route::get('tabla', [FuncionarioController::class, 'tabla'])->name('funcionario.tabla');
-
-        Route::resource('funcionario', FuncionarioController::class);
-    });
-
-
+   
+   
     //rutas de Inventario
    
+    Route::resource('insumo', InsumoController::class);
+    // Route::prefix('insumo')->group(function () {
+        
+    //     // // Route::get('tablaInventario', [InventorieController::class, 'tablaInventario'])->name('inventario.tablaInventario');
 
-    Route::prefix('inventario')->group(function () {
+    //     // Route::get('alert',[InventorieController::class,'alert'])->name('inventario.alert');
 
-        // Route::get('tablaInventario', [InventorieController::class, 'tablaInventario'])->name('inventario.tablaInventario');
-
-        Route::get('alert',[InventorieController::class,'alert'])->name('inventario.alert');
-
-        Route::resource('inventario', InventorieController::class);
+        
        
-    });
+    // });
+
+  //ruta calendario
+    Route::resource('calendario', CalendarioController::class);
+    //mirella manrique
+
+    //ruta de pantallas
+
+    Route::resource('pantallas',PantallaController::class);
+
+
+    //rutas de los gabinetes
+
+
+    Route::resource('gabinetes',GabineteController::class);
 
     
+
+
+      Route::get('/search',[GabineteController::class,'search'])->name('gabinetes.search');
+
+   
+   
+
+    //teclado
+
+    Route::resource('teclados', TecladoController::class);
+
+
+    //ratones
+
+    Route::resource('mauses', MauseController::class);
+
+    //parlantes
+     Route::resource('parlantes', ParlanteController::class);
+
+
+     // rutan de agrupado
+
+
+     Route::resource('agrupados', AgrupadoController::class);
+
+
+
 });
