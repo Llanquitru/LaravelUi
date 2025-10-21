@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+<<<<<<< HEAD
 
 @section('content')
 
@@ -13,5 +14,16 @@
     
 </div>
 
+=======
+<div class="alert alert-success" role="alert">
+    
+    <p>Ingrsado!</p>
+    <hr>
+   
+  </div>
+
+
+@section('content')
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
     
 @endsection

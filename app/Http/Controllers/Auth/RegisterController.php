@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+<<<<<<< HEAD
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 
+=======
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -54,7 +59,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+<<<<<<< HEAD
             'img'=>['required','file','image','max:2048']
+=======
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
         ]);
     }
 
@@ -64,6 +72,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+<<<<<<< HEAD
     protected function create(array $data )
 
 
@@ -85,5 +94,15 @@ class RegisterController extends Controller
      
 
 
+=======
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'admin'=>1
+        ]);
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
     }
 }

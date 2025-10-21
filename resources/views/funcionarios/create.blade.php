@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+<<<<<<< HEAD
 
 
 @section('content')
@@ -35,5 +36,11 @@
 
 </div>
 
+=======
+<h1>LLegaste al crear</h1>
+
+
+@section('content')
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
     
 @endsection

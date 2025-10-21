@@ -25,11 +25,19 @@ class LoginController extends Controller
      *
      * @var string
      */
+<<<<<<< HEAD
     protected $redirectTo = '/home';
 
     // public function redirectTo(){
     //     return route('solicitud.index');
     // }
+=======
+    // protected $redirectTo = '/solicitud';
+
+    public function redirectTo(){
+        return route('solicitud.index');
+    }
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 
     /**
      * Create a new controller instance.

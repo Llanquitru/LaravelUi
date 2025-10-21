@@ -10,8 +10,12 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+<<<<<<< HEAD
         "laravel/ui": "^4.5",
         "phpoffice/phpspreadsheet": "^2.1"
+=======
+        "laravel/ui": "^4.5"
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

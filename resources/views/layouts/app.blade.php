@@ -16,9 +16,17 @@
    
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('img/favicon.ico')}}"/> 
 
+<<<<<<< HEAD
 
     <!-- Scripts -->
  @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+=======
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+
+   
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 </head>
 <body>
     <div id="app">

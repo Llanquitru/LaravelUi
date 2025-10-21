@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+<<<<<<< HEAD
                 <div class="card-header">{{ __('Control de cosas') }}</div>
+=======
+                <div class="card-header">{{ __('Dashboard') }}</div>
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,6 +18,7 @@
                         </div>
                     @endif
                     
+<<<<<<< HEAD
                     <a href="{{route('solicitud.index')}}" class="btn "> Requerimiento</a>
                     
                     <a href="{{route('insumo.index')}}" class="btn "> Cables</a>
@@ -26,6 +31,10 @@
                     <a href="{{route('parlantes.index')}}" class="btn">Parlante</a>
                     <a href="{{route('agrupados.index')}}" class="btn">Asignar Equipo para funcionario</a>
                    
+=======
+                    <a href="{{route('solicitud.index' )}}" class="btn" > Solicitud</a>
+                    <a href="{{route('funcionario.index' )}}" class="btn" > Funcionario</a>
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
                 </div>
             </div>
         </div>

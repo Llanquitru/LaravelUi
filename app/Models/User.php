@@ -23,8 +23,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+<<<<<<< HEAD
         'admin',
         'img'
+=======
+        'admin'
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
     ];
 
     /**
@@ -49,9 +53,12 @@ class User extends Authenticatable
 
 
 
+<<<<<<< HEAD
     public function pruebas(){
         return $this->hasMany(Prueba::class);
     }
+=======
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 
 
     public function solicituds(){
@@ -61,9 +68,12 @@ class User extends Authenticatable
     public function funcionarios(){
         return $this->hasMany(Funcionario::class);
     }
+<<<<<<< HEAD
 
     public function insumos(){
         return $this->hasMany(Insumo::class);
     }
 
+=======
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 }

@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Solicitud;
+<<<<<<< HEAD
 use GuzzleHttp\Client;
+=======
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 class SolicitudController extends Controller
 {
     /**
@@ -53,14 +59,24 @@ return view('solicitudes.index', compact('solicituds'));
             'codigo'=>$request-> codigo,
             'requerimiento' =>$request-> requerimiento,
             'descripcion'=>$request-> descripcion,
+<<<<<<< HEAD
             'user_id'=>Auth::user()->id
+=======
+            'id_user'=>Auth::user()->id
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 
 
 
         ]);
 
+<<<<<<< HEAD
         return redirect()->route('solicitud.alert');
         }
+=======
+
+        return Redirect::route('solicitud.index');
+    }
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 
     /**
      * Display the specified resource.
@@ -77,7 +93,11 @@ return view('solicitudes.index', compact('solicituds'));
      */
     public function edit(Solicitud $solicitud)
     {
+<<<<<<< HEAD
         return view('solicitudes.edit',compact('solicitud'));
+=======
+        return view('solicitudes.edit', compact('solicitud'));
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
     }
 
     /**
@@ -86,19 +106,36 @@ return view('solicitudes.index', compact('solicituds'));
     public function update(Request $request, Solicitud $solicitud)
     {
         $slug = Str::slug($request->oficina,'-');
+<<<<<<< HEAD
         $solicitud->update([
+=======
+
+       
+       $solicitud-> update([
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
             'slug'=>$slug,
             'oficina'=> $request -> oficina,
             'equipo'=> $request -> equipo,
             'codigo'=>$request-> codigo,
             'requerimiento' =>$request-> requerimiento,
             'descripcion'=>$request-> descripcion,
+<<<<<<< HEAD
            
+=======
+             'id_user'=>Auth::user()->id
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 
 
 
         ]);
+<<<<<<< HEAD
         return Redirect::route('solicitud.index'); 
+=======
+
+
+        
+        return Redirect::route('solicitud.index');
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
     }
 
     /**
@@ -106,6 +143,7 @@ return view('solicitudes.index', compact('solicituds'));
      */
     public function destroy(Solicitud $solicitud)
     {
+<<<<<<< HEAD
       // dd(true);
       $solicitud -> delete();
       return Redirect::back(); 
@@ -120,6 +158,13 @@ return view('solicitudes.index', compact('solicituds'));
 
     public function alert(){
 
+=======
+        $solicitud -> delete();
+       return Redirect::back(); 
+    }
+
+    public function alert(){
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
         return view('solicitudes.alert');
     }
 }

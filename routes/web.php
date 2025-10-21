@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\AgrupadoController;
 use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\EquiposController;
@@ -17,6 +18,12 @@ use App\Models\Funcionario;
 use App\Models\Inventorie;
 use App\Models\Parlante;
 use Illuminate\Console\View\Components\Alert;
+=======
+use App\Http\Controllers\FuncionarioConstroller;
+use App\Http\Controllers\PruebaController;
+use App\Http\Controllers\SolicitudController;
+use App\Models\Funcionario;
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +38,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
     return view('auth.login');
+=======
+    return view('welcome');
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 });
 
 Auth::routes();
@@ -40,6 +51,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Route::get('solicitud/{solicitud:slug}',[SolicitudController::class,'show'])->name('solicitud.show');
 
+<<<<<<< HEAD
 
 
 
@@ -128,4 +140,25 @@ Route::middleware('auth')->group(function () {
 
 
 
+=======
+//con esta ruta valido que esten logiado
+Route::middleware('auth')->group(function () {
+
+
+
+    //con esta ruta le doy un prefijo a la ruta , ruta del funcionario
+   
+   
+
+    
+
+    //
+    Route::resource('solicitud', SolicitudController::class);
+    //Route::get('solicitud/alert',SolicitudController::class)->name('solicitud.alert');
+   
+    Route::resource('funcionario',FuncionarioConstroller::class);
+    Route::prefix('funcionario')->group(function(){
+       
+    });
+>>>>>>> 4beb037a671533b2d5a2caf86815d2595a9a6660
 });
